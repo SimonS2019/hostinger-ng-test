@@ -1,1 +1,6 @@
-<p>display-notes works!</p>
+<div class="container mt-4">
+    <h2>Display Notes</h2>
+    <ul class="list-group mt-4">
+      <li *ngFor="let note of notes" class="list-group-item">{{ note }}</li>
+    </ul>
+  </div>
