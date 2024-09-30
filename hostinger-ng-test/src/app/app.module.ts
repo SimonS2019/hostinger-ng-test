@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { WriteNotesComponent } from './write-notes/write-notes.component';
 import { DisplayNotesComponent } from './display-notes/display-notes.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DisplayNotesComponent } from './display-notes/display-notes.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule // Add FormsModule to imports
   ],
   providers: [],
   bootstrap: [AppComponent]
