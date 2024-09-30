@@ -1,1 +1,9 @@
-<p>write-notes works!</p>
+<div class="container mt-4">
+    <h2>Write Notes</h2>
+    <form (submit)="addNote()">
+      <div class="form-group">
+        <textarea class="form-control" [(ngModel)]="newNote" name="note" rows="3" placeholder="Write your note here..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary mt-2">Add Note</button>
+    </form>
+  </div>
