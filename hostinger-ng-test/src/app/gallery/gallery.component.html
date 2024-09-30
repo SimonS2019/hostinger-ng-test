@@ -1,1 +1,21 @@
-<p>gallery works!</p>
+<div class="container mt-4">
+    <h2>Gallery</h2>
+    <div class="row">
+      <div class="col-md-4 mb-4" *ngFor="let media of mediaList">
+        <div class="card">
+          <div *ngIf="media.type === 'image'">
+            <img [src]="media.url" class="card-img-top" alt="Image">
+          </div>
+          <div *ngIf="media.type === 'video'">
+            <video controls class="card-img-top">
+              <source [src]="media.url" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="card-body">
+            <p class="card-text">{{ media.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
