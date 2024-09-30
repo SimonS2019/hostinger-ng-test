@@ -7,13 +7,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { WriteNotesComponent } from './write-notes/write-notes.component';
 import { DisplayNotesComponent } from './display-notes/display-notes.component';
 import { FormsModule } from '@angular/forms';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     WriteNotesComponent,
-    DisplayNotesComponent
+    DisplayNotesComponent,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,

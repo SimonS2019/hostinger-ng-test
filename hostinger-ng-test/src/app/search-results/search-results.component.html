@@ -1,0 +1,6 @@
+<div class="container mt-4">
+    <h2>Search Results for "{{ searchQuery }}"</h2>
+    <ul class="list-group mt-4">
+      <li *ngFor="let note of filteredNotes" class="list-group-item">{{ note }}</li>
+    </ul>
+  </div>
