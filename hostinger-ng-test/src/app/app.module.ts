@@ -8,6 +8,7 @@ import { WriteNotesComponent } from './write-notes/write-notes.component';
 import { DisplayNotesComponent } from './display-notes/display-notes.component';
 import { FormsModule } from '@angular/forms';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     NavbarComponent,
     WriteNotesComponent,
     DisplayNotesComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
