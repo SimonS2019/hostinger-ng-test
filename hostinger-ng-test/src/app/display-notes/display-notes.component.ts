@@ -5,19 +5,19 @@ import { Note } from '../models/note.model'; // Import the Note interface
 @Component({
   selector: 'app-display-notes',
   templateUrl: './display-notes.component.html',
-  styleUrls: ['./display-notes.component.css']
+  styleUrls: ['./display-notes.component.css'],
 })
 export class DisplayNotesComponent implements OnInit {
   notes: Note[] = []; // Ensure notes is typed as an array of Note
 
   constructor(private notesService: NotesService) {}
-
-  ngOnInit() {
-    this.notes = this.notesService.getNotes();
+  
+  async ngOnInit() {
+    this.notes = await this.notesService.getNotes();
   }
 
-  removeNote(index: number) {
-    this.notesService.removeNote(index);
-    this.notes = this.notesService.getNotes(); // Update the view
+  async removeNote(id: number) {
+    await this.notesService.removeNote(id);
+    this.notes = await this.notesService.getNotes(); // Update the view
   }
 }

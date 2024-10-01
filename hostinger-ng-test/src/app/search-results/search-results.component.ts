@@ -1,31 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NotesService } from '../notes.service';
-import { Note } from '../models/note.model'; // Import the Note interface
+import { Note } from '../models/note.model';
 
 @Component({
   selector: 'app-search-results',
   templateUrl: './search-results.component.html',
-  styleUrls: ['./search-results.component.css'],
+  styleUrls: ['./search-results.component.css']
 })
 export class SearchResultsComponent implements OnInit {
   searchQuery: string = '';
-  filteredNotes: Note[] = []; // Ensure filteredNotes is typed as an array of Note
+  filteredNotes: Note[] = [];
 
-  constructor(
-    private route: ActivatedRoute,
-    private notesService: NotesService
-  ) {}
+  constructor(private route: ActivatedRoute, private notesService: NotesService) {}
 
   ngOnInit() {
-    this.route.queryParams.subscribe((params) => {
+    this.route.queryParams.subscribe(params => {
       this.searchQuery = params['query'] || '';
       this.filterNotes();
     });
   }
 
-  filterNotes() {
-    const allNotes = this.notesService.getNotes();
+  async filterNotes() {
+    const allNotes = await this.notesService.getNotes();
     this.filteredNotes = allNotes.filter(
       (note) =>
         (note.title &&

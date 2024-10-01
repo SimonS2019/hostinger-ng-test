@@ -1,30 +1,40 @@
 import { Injectable } from '@angular/core';
+import { openDB, DBSchema, IDBPDatabase } from 'idb';
 import { Note } from './models/note.model';
+
+interface NotesDB extends DBSchema {
+  notes: {
+    key: number;
+    value: Note;
+  };
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotesService {
-  private notes: Note[] = [];
+  private dbPromise: Promise<IDBPDatabase<NotesDB>>;
 
   constructor() {
-    const storedNotes = localStorage.getItem('notes');
-    if (storedNotes) {
-      this.notes = JSON.parse(storedNotes);
-    }
+    this.dbPromise = openDB<NotesDB>('notes-db', 1, {
+      upgrade(db) {
+        db.createObjectStore('notes', { keyPath: 'id', autoIncrement: true });
+      }
+    });
   }
 
-  getNotes(): Note[] {
-    return this.notes;
+  async getNotes(): Promise<Note[]> {
+    const db = await this.dbPromise;
+    return await db.getAll('notes');
   }
 
-  addNote(note: Note): void {
-    this.notes.push(note);
-    localStorage.setItem('notes', JSON.stringify(this.notes));
+  async addNote(note: Note): Promise<void> {
+    const db = await this.dbPromise;
+    await db.add('notes', note);
   }
 
-  removeNote(index: number): void {
-    this.notes.splice(index, 1);
-    localStorage.setItem('notes', JSON.stringify(this.notes));
+  async removeNote(id: number): Promise<void> {
+    const db = await this.dbPromise;
+    await db.delete('notes', id);
   }
 }
