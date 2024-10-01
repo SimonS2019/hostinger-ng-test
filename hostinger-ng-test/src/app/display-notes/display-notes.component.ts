@@ -11,7 +11,7 @@ export class DisplayNotesComponent implements OnInit {
   notes: Note[] = []; // Ensure notes is typed as an array of Note
 
   constructor(private notesService: NotesService) {}
-  
+
   async ngOnInit() {
     this.notes = await this.notesService.getNotes();
   }
@@ -19,5 +19,9 @@ export class DisplayNotesComponent implements OnInit {
   async removeNote(id: number) {
     await this.notesService.removeNote(id);
     this.notes = await this.notesService.getNotes(); // Update the view
+  }
+
+  async downloadNotes() {
+    await this.notesService.downloadNotes();
   }
 }
