@@ -9,6 +9,7 @@ import { DisplayNotesComponent } from './display-notes/display-notes.component';
 import { FormsModule } from '@angular/forms';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { VideoGalleryComponent } from './video-gallery/video-gallery.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { GalleryComponent } from './gallery/gallery.component';
     WriteNotesComponent,
     DisplayNotesComponent,
     SearchResultsComponent,
-    GalleryComponent
+    GalleryComponent,
+    VideoGalleryComponent
   ],
   imports: [
     BrowserModule,
