@@ -1,5 +1,6 @@
 <div class="container mt-4">
   <h2>Display Notes</h2>
+  <button class="btn btn-primary mb-3" (click)="downloadNotes()">Download Notes</button>
   <ul class="list-group mt-4">
     <li *ngFor="let note of notes; let i = index" class="list-group-item">
       <h5 style="color: blue;">Title: {{ note.title }}</h5>

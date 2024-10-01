@@ -27,4 +27,18 @@ export class NotesService {
     this.notes.splice(index, 1);
     localStorage.setItem('notes', JSON.stringify(this.notes));
   }
+
+  downloadNotes(): void {
+    const notes = this.getNotes();
+    const notesJson = JSON.stringify(notes, null, 2);
+    const blob = new Blob([notesJson], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'notes.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
 }
