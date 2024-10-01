@@ -15,4 +15,9 @@ export class DisplayNotesComponent implements OnInit {
   ngOnInit() {
     this.notes = this.notesService.getNotes();
   }
+
+  removeNote(index: number) {
+    this.notesService.removeNote(index);
+    this.notes = this.notesService.getNotes(); // Update the view
+  }
 }

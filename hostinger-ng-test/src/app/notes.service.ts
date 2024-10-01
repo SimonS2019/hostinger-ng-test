@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Note } from './models/note.model'; // Update the import path
+import { Note } from './models/note.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +20,11 @@ export class NotesService {
 
   addNote(note: Note): void {
     this.notes.push(note);
+    localStorage.setItem('notes', JSON.stringify(this.notes));
+  }
+
+  removeNote(index: number): void {
+    this.notes.splice(index, 1);
     localStorage.setItem('notes', JSON.stringify(this.notes));
   }
 }
