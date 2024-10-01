@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NotesService } from '../notes.service';
+import { Note } from '../models/note.model'; // Import the Note interface
 
 @Component({
   selector: 'app-display-notes',
@@ -7,7 +8,7 @@ import { NotesService } from '../notes.service';
   styleUrls: ['./display-notes.component.css']
 })
 export class DisplayNotesComponent implements OnInit {
-  notes: string[] = [];
+  notes: Note[] = []; // Ensure notes is typed as an array of Note
 
   constructor(private notesService: NotesService) {}
 

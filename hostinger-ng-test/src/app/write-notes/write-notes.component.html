@@ -1,9 +1,44 @@
 <div class="container mt-4">
-    <h2>Write Notes</h2>
-    <form (submit)="addNote()">
-      <div class="form-group">
-        <textarea class="form-control" [(ngModel)]="newNote" name="note" rows="3" placeholder="Write your note here..."></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary mt-2">Add Note</button>
-    </form>
-  </div>
+  <h2>Write Notes</h2>
+  <form (submit)="addNote()">
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="newNote.title"
+        name="title"
+        placeholder="Title"
+        required
+      />
+    </div>
+    <div class="form-group mt-2">
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="newNote.subtitle"
+        name="subtitle"
+        placeholder="Subtitle"
+      />
+    </div>
+    <div class="form-group mt-2">
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="newNote.creator"
+        name="creator"
+        placeholder="Creator"
+      />
+    </div>
+    <div class="form-group mt-2">
+      <textarea
+        class="form-control"
+        [(ngModel)]="newNote.details"
+        name="details"
+        rows="3"
+        placeholder="Write your note details here..."
+        required
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Add Note</button>
+  </form>
+</div>

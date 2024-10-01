@@ -1,6 +1,12 @@
 <div class="container mt-4">
-    <h2>Search Results for "{{ searchQuery }}"</h2>
-    <ul class="list-group mt-4">
-      <li *ngFor="let note of filteredNotes" class="list-group-item">{{ note }}</li>
-    </ul>
-  </div>
+  <h2>Search Results for "{{ searchQuery }}"</h2>
+  <ul class="list-group mt-4">
+    <li *ngFor="let note of filteredNotes" class="list-group-item">
+      <h5>{{ note.title }}</h5>
+      <h6>{{ note.subtitle }}</h6>
+      <p><strong>Date:</strong> {{ note.date | date:'short' }}</p>
+      <p><strong>Details:</strong> {{ note.details }}</p>
+      <p><strong>Creator:</strong> {{ note.creator }}</p>
+    </li>
+  </ul>
+</div>
